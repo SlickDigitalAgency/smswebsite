@@ -1,0 +1,248 @@
+DAE School Management System – Product Requirements Document (PRD)
+🔧 1. System Architecture & General Requirements
+Modular, scalable architecture following clean code and component-based structure.
+
+Use technologies compatible with modern full-stack development (e.g., Next.js, Prisma, PostgreSQL, TailwindCSS, ShadCN UI).
+
+Ensure full responsiveness and accessibility (WCAG compliance).
+
+Support light and dark mode toggle (user preference-based).
+
+Implement authentication via login only (no public signup).
+
+Role-based access control:
+
+Admin
+
+Faculty
+
+Accountant
+
+Dashboard routing and permissions must be scoped by user role.
+
+👥 2. User Authentication & Roles
+Remove all signup functionality.
+
+Only Admin can create other users (Faculty, Accountant).
+
+Support secure login (e.g., NextAuth or custom JWT with bcrypt).
+
+Password reset flow (admin-initiated or optional email-based).
+
+User role permissions:
+
+Admin: Full CRUD access to all modules.
+
+Faculty: View & manage assigned students, attendance, timetables, and results.
+
+Accountant: View/manage fees, challans, and payment records.
+
+🎓 3. Student Management
+Add, update, view, and delete student profiles.
+
+Data fields:
+
+Name, Father/Guardian name, CNIC/B-Form
+
+Address, Contact info, Emergency contact
+
+Date of birth, Gender
+
+Enrollment No, Registration No
+
+Program, Class, Section
+
+Admission Date, Current Status
+
+Profile image upload
+
+Bulk student import (CSV/Excel)
+
+Export student list (PDF/Excel)
+
+Advanced search and filtering by program, year, section, etc.
+
+🧑‍🏫 4. Faculty Management
+Add/update/view/delete faculty members.
+
+Assign faculty to:
+
+Specific class(es)
+
+Section(s)
+
+Subject(s)
+
+Data fields:
+
+Name, CNIC, Contact Info
+
+Qualifications, Designation
+
+Program/Class/Subject assignments
+
+Faculty dashboard to manage attendance, results, and timetables.
+
+🏫 5. Class, Program & Section Management
+Create programs like DAE Civil, Electrical, Electronics, Computer IT.
+
+Each program can have multiple years (1st, 2nd, 3rd Year).
+
+Each year can have multiple sections (e.g., A, B, C, D, E).
+
+UI to assign students to classes and sections.
+
+📅 6. Attendance Management
+Mark attendance subject-wise or general.
+
+Filter attendance by:
+
+Date range
+
+Class/year/section
+
+Subject/faculty
+
+Generate and export monthly attendance reports.
+
+Visual attendance trends with ChartJS.
+
+Attendance must comply with local board requirements.
+
+🧾 7. Fee & Challan Management
+Define fee structures (per program, class, year).
+
+Allow:
+
+Monthly, Quarterly, Bi-Annual, or Annual cycles.
+
+Custom fee setup per student if needed.
+
+Fee discounts (fixed/percentage).
+
+Auto-generate challans with:
+
+Unique ID
+
+Due date
+
+Status: Paid, Unpaid, Partially Paid, Overdue
+
+Partial payments should auto-generate new challan for balance.
+
+Export challans (PDF).
+
+View fee history per student.
+
+Accountant dashboard with:
+
+Collection stats
+
+Defaulter list
+
+Payment trends and summary
+
+📝 8. Exams & Result Management
+Setup exams per subject and academic term.
+
+Enter marks per student.
+
+Auto-calculate total, percentage, grade.
+
+Generate printable PDF report cards.
+
+View result history per student.
+
+Filter results by class, term, section.
+
+🗓️ 9. Timetable & Curriculum
+Define subjects per department/year.
+
+Assign periods and timeslots per week.
+
+Faculty-wise timetable generation.
+
+Timetables are visible to:
+
+Faculty (assigned)
+
+Students (filtered by section)
+
+Export timetable as PDF.
+
+📢 10. Announcements Module
+Admin/Faculty can create announcements.
+
+Assign announcement to:
+
+All users
+
+Specific roles
+
+Specific classes/sections
+
+Ability to pin priority announcements.
+
+Visible on dashboard and notification center.
+
+📊 11. Dashboard & Analytics
+Real-time cards for:
+
+Total Students, Total Faculty
+
+Fee Collection Summary
+
+Today’s Attendance
+
+Pending Challans
+
+Charts (via ChartJS) for:
+
+Attendance Trends
+
+Collection Graph
+
+Enrollment by Program
+
+Separate dashboards based on role:
+
+Admin: Full visibility
+
+Faculty: Student attendance, classes, results
+
+Accountant: Fee status and reports
+
+📈 12. Reports & Export Tools
+Student and faculty list export (CSV, PDF).
+
+Challan reports (date, status, payment history).
+
+Attendance and exam reports (filtered).
+
+All reports must be formatted for printing and compliant with audit requirements.
+
+📞 13. Communication (Optional Phase 2)
+Internal messaging (admin ↔ faculty ↔ accountant)
+
+SMS & Email Reminders:
+
+Upcoming fee due
+
+Absence alerts
+
+Exam result availability
+
+Parent portal (optional future module)
+
+🔌 14. Integrations & Configurations
+API-ready backend structure for future mobile app or third-party integration.
+
+Role/permission configuration via admin panel.
+
+Future enhancement hooks:
+
+Payment gateway integration
+
+Biometric attendance
+
+Parent login support

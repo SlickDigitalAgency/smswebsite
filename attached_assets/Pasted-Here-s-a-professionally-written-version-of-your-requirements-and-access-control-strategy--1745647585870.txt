@@ -1,0 +1,69 @@
+Here’s a professionally written version of your requirements and access control strategy:
+
+---
+
+### 🔐 Access Control & Role Management Requirements
+
+1. **Authentication Flow:**
+   - **Strictly remove** all **signup files and functionality** from the application.
+   - Only **login** should be allowed to access the system. All users must be created by authorized personnel (e.g., Super Admin or Admin based on permissions).
+
+---
+
+### 🛡️ Role-Based Access Control (RBAC)
+
+#### 1. **Super Admin**
+- **Full control** over the entire application.
+- Can **create and manage Admin users**.
+- Can define which permissions an Admin user has, including the ability to manage:
+  - Faculty
+  - Staff
+  - Students
+- Can **assign and revoke access rights** to all other roles.
+- Can generate a **one-time password (OTP)** for newly created Admins and Staff. The recipient must **reset their password** upon first login.
+
+#### 2. **Admin** *(Permissions controlled by Super Admin)*
+- Can perform **CRUD operations** on:
+  - Faculty
+  - Staff
+  - Students
+  - Classes & Programs
+  - Attendance
+  - Exams & Results
+  - Fee Management
+- Can generate OTPs for Staff or Faculty (if permitted by Super Admin).
+- Cannot modify or manage Super Admin accounts or privileges.
+
+#### 3. **Faculty**
+- Access is limited to the academic sections relevant to their assigned subjects or classes.
+- Can view and manage student academic records, attendance, and related reports (if granted).
+- Cannot access administrative sections like fee management or user roles.
+
+#### 4. **Accountant**
+- Responsible for managing:
+  - Fee Structures
+  - Challan Generation
+  - Payment Reports
+- Cannot access academic data or user management functionalities.
+
+---
+
+### 🔑 Password Management
+- When Super Admin or Admin (if permitted) creates a new Staff or Faculty user:
+  - A **one-time password (OTP)** is generated and shared securely.
+  - On first login, the user is **required to change their password** to continue using the system.
+
+---
+
+### ✅ Summary of Responsibilities by Role:
+
+| Role         | User Management | Academic Access | Financial Access | Permissions Control | First Login OTP |
+|--------------|-----------------|------------------|------------------|----------------------|-----------------|
+| Super Admin  | ✔ Full          | ✔ Full           | ✔ Full           | ✔ Full               | ✔ Yes           |
+| Admin        | ✔ Limited       | ✔ Full (if allowed) | ✔ Full (if allowed) | ❌ Only if allowed   | ✔ Yes           |
+| Faculty      | ❌              | ✔ Assigned only  | ❌               | ❌                   | ✔ Yes           |
+| Accountant   | ❌              | ❌               | ✔ Full           | ❌                   | ✔ Yes           |
+
+---
+
+Please proceed to implement these changes strictly as outlined. Let me know once this structure is in place so I can validate the access control and user flows.
